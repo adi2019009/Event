@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+Events_in_you_invited
+{% endblock %}
+{% block content %}
+<center>
+   {% if message %}
+   <h1><b>{{message}}</b></h1>
+   {% else %}
+
+   <hr>
+
+   <br>
+</center>
+<table class="container" style="background-color:#63B1FA;color:white" >
+   <thead>
+      <tr style="color:black">
+         <th scope="col" >Event_name</th>
+         <th scope="col">Host</th>
+         <th scope="col">Date</th>
+         <th scope="col">Time</th>
+      </tr>
+   </thead>
+   <tbody>
+
+      {% for obj in objs%}
+      <tr>
+
+         <th>{{obj.event.event_name}}</th>
+         <td>{{obj.event.host}}</td>
+         <td>{{obj.event.date}}</td>
+         <td>{{obj.event.time}}</td>
+
+
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+<nav aria-label="Page navigation example" mt-30>
+   <ul class="pagination justify-content-center">
+      {% if objs.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1&sort_events={{sort_events}}">1</a></li>
+      <li class="page-item"><a class="page-link"
+            href="?page={{objs.previous_page_number}}&sort_events={{sort_events}}">Previous</a></li>
+      {% endif %}
+      <li class="page-item disabled">
+         <a class="page-link" href="#" tabindex="-1">Page {{objs.number}} of {{objs.paginator.num_pages}}</a>
+      </li>
+      {% if objs.has_next %}
+      <li class="page-item"><a class="page-link"
+            href="?page={{objs.next_page_number}}&sort_events={{sort_events}}">Next</a></li>
+      <li class="page-item"><a class="page-link"
+            href="?page={{objs.paginator.num_pages}}&sort_events={{sort_events}}">{{objs.paginator.num_pages}}</a></li>
+      {% endif %}
+   </ul>
+</nav>
+
+{% endif %}
+
+
+{% endblock %}

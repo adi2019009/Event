@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Add_an_event
+{% endblock %}
+{% block content %}
+
+
+<center>
+    <div class="container" style="width: 600px;height:600px;margin-top:40px;background-color:#33FFF9;border-radius:50px">
+        <h3 style="margin-top: 25px;font-family:courier "><b>Create an Event </b></h3>
+        <hr>
+
+        <form action=""  method="POST" >
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div>
+                <p>{{ field.label }}: <br> {{ field }} </p>
+
+
+
+            </div>
+            {% endfor %}
+            <button type="submit">Create</button>
+        </form>
+
+    </div>
+</center>
+{% endblock %}

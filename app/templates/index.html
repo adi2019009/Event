@@ -1,0 +1,31 @@
+<html>
+{% extends 'base.html' %}
+{% block title %}
+Home Page
+{% endblock %}
+{% block content %}
+<center>
+    <div style="background-color:#0DCAF0;width: 400px;margin-top: 200px;border:black;border-radius:50px"  >
+        <a class="btn btn-primary btn-lg btn-block" style="background-color:black;border:black" href="/add" ><b>Create event </b></a>
+
+        <hr>
+
+        <a class="btn btn-primary btn-lg btn-block" style="background-color:black;border:black" href="/see_you_invited"><b>Events you invited </b></a>
+
+        <hr>
+
+        <a class="btn btn-primary btn-lg btn-block" style="background-color:black;border:black" href="/see_you_hosted"><b>Events hosted by you </b></a>
+        <hr>
+        <a class="btn btn-primary btn-lg btn-block"style="background-color:black;border:black" href="/change_password"><b>Change password </b> </a>
+        <hr>
+        <a class="btn btn-primary btn-lg btn-block" style="background-color:black;border:black" href="/logout"><b>Logout</b></a>
+    </div>
+    
+        
+    
+</center>
+
+
+
+{% endblock %}
+</html>

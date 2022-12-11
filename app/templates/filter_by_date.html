@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+Events_filter_by_Date
+{% endblock %}
+{% block content %}
+<center style="margin-top: 40px;">
+    <form action="/date_filter" method="post">
+        {% csrf_token %}
+        <input required type="date" name="date" id="">
+        <button type="submit">Filter</button>
+    </form>
+</center style="margin-top:40px;">
+{% if message %}
+<center >
+    <h1><b>{{message}}</b></h1>
+</center>
+{% else %}
+
+<center style="margin-top: 40px;">
+<table class="table table-dark">
+    <thead>
+        <tr>
+        </tr>
+        <tr>
+            <th scope="col">Event_name</th>
+            <th>Host</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in objs %}
+
+        <tr>
+            <th scope="row"><a href="/get_this_event/{{obj.id}}">{{obj.event_name}}</a></th>
+            <td>{{obj.host}}</td>
+            <td>{{obj.date}}</td>
+            <td>{{obj.time}}</td>
+
+
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</center>
+
+
+
+
+{% endif %}
+{% endblock %}
